@@ -20,7 +20,7 @@ router.post("/reset_password",async function(req,res,next){
         let userId = user._id
         let reset_string = Math.random().toString(36).substr(2, 5);
         let update = await db.collection("users").findOneAndUpdate({email},{$set:{reset_token:reset_string}})
-        let payload = `Reset Your Password here http://localhost:3000/reset/${userId}/${reset_string}`
+        let payload = `Reset Your Password here http://localhost:5000/reset/${userId}/${reset_string}`
         let sending = await sendEmail(email,"Reset Link",payload)
         console.log(sending)
         res.json({
