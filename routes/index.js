@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var {url,mongodClient} = require("../config")
 const { sendEmail } = require('../common/mailer');
+var mongodb = require("mongodb")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
